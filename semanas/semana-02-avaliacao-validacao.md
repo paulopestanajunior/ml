@@ -1,6 +1,6 @@
 # Semana 2 — Avaliação e Validação de Modelos
 
-Nesta semana você se concentra em **avaliar e validar modelos** de machine learning.  Aprenderá a reconhecer problemas de sobreajuste, utilizar métricas de desempenho apropriadas, aplicar validação cruzada, ajustar hiperparâmetros e interpretar resultados levando em conta custos e benefícios.  O objetivo é preparar uma base sólida para decidir quando um modelo está pronto para produção.
+Nesta semana você se concentra em **avaliar e validar modelos** de machine learning. Aprenderá a reconhecer problemas de sobreajuste, utilizar métricas de desempenho apropriadas, aplicar validação cruzada, ajustar hiperparâmetros e interpretar resultados levando em conta custos e benefícios. O objetivo é preparar uma base sólida para decidir quando um modelo está pronto para produção.
 
 ## Índice da semana
 
@@ -15,7 +15,7 @@ Nesta semana você se concentra em **avaliar e validar modelos** de machine lear
 
 **Referência principal**
 
-* *Data Science para Negócios*, capítulo 5 – discute generalização, sobreajuste e controle de complexidade, incluindo técnicas como cross‑validation e regularização【681657430915828†L114-L135】.
+* *Data Science para Negócios*, capítulo 5 – discute generalização, sobreajuste e controle de complexidade, incluindo técnicas como cross‑validation e regularização.
 
 **Referência complementar**
 
@@ -27,8 +27,8 @@ Nesta semana você se concentra em **avaliar e validar modelos** de machine lear
 
 **Atividades**
 
-- [ ] Ler o capítulo 5 de *DS para Negócios* para entender a importância de generalização e as causas do overfitting e underfitting【681657430915828†L114-L135】.
-- [ ] Plotar curvas de aprendizado (score vs tamanho do conjunto de treinamento) para o modelo desenvolvido na semana 1.  Usar Scikit‑Learn (`learning_curve`) para visualizar se há overfitting.
+- [ ] Ler o capítulo 5 de *DS para Negócios* para entender a importância de generalização e as causas do overfitting e underfitting.
+- [ ] Plotar curvas de aprendizado (score vs tamanho do conjunto de treinamento) para o modelo desenvolvido na semana 1. Usar Scikit‑Learn (`learning_curve`) para visualizar se há overfitting.
 - [ ] Experimentar reduzir a complexidade do modelo (por exemplo, limitando a profundidade da árvore ou aplicando regularização L2) e observar o impacto.
 - [ ] Anotar conclusões sobre trade‑off viés‑variância em seu resumo semanal.
 
@@ -36,7 +36,7 @@ Nesta semana você se concentra em **avaliar e validar modelos** de machine lear
 
 **Referência principal**
 
-* *DS para Negócios*, capítulo 7 – apresenta diversas métricas de avaliação, explica problemas de acurácia em classes desbalanceadas, a importância da matriz de confusão, custos e benefícios e o conceito de valor esperado na avaliação de modelos【681657430915828†L174-L190】.
+* *DS para Negócios*, capítulo 7 – apresenta diversas métricas de avaliação, explica problemas de acurácia em classes desbalanceadas, a importância da matriz de confusão, custos e benefícios e o conceito de valor esperado na avaliação de modelos.
 
 **Referência complementar**
 
@@ -45,14 +45,14 @@ Nesta semana você se concentra em **avaliar e validar modelos** de machine lear
 **Atividades**
 
 - [ ] Revisar os tipos de erros (falso positivo, falso negativo) e construir uma matriz de confusão para o classificador criado na semana 1, utilizando `confusion_matrix`.
-- [ ] Calcular e comparar diferentes métricas: acurácia, precisão, recall, F1 e **AUC** (quando aplicável).  Entender em quais cenários cada métrica é mais indicada【681657430915828†L174-L190】.
+- [ ] Calcular e comparar diferentes métricas: acurácia, precisão, recall, F1 e **AUC** (quando aplicável). Entender em quais cenários cada métrica é mais indicada.
 - [ ] Criar um relatório em formato de tabela ou gráfico comparando as métricas e interpretar quais trade‑offs estão envolvidos.
 
 ## Dia 9 — Validação cruzada e ajuste de hiperparâmetros
 
 **Referência principal**
 
-* *DS para Negócios*, capítulo 5 – descreve métodos de validação cruzada e sua relação com overfitting【681657430915828†L114-L135】.
+* *DS para Negócios*, capítulo 5 – descreve métodos de validação cruzada e sua relação com overfitting.
 
 **Referência complementar**
 
@@ -73,19 +73,19 @@ Nesta semana você se concentra em **avaliar e validar modelos** de machine lear
 
 **Referência complementar**
 
-* *DS para Negócios*, capítulo 8 – apresenta visualizações de desempenho, como curvas ROC, área sob a curva (AUC) e curvas de lift【681657430915828†L193-L205】.
+* *DS para Negócios*, capítulo 8 – apresenta visualizações de desempenho, como curvas ROC, área sob a curva (AUC) e curvas de lift.
 
 **Atividades**
 
-- [ ] Treinar um modelo de ensemble (por exemplo, **Random Forest** ou **Gradient Boosting**) no dataset utilizado.  Comparar seu desempenho com o modelo simples das semanas anteriores.
-- [ ] Plotar a curva ROC e calcular a AUC usando `roc_curve` e `auc` do Scikit‑Learn.  Interpretar o trade‑off entre sensibilidade e especificidade.
+- [ ] Treinar um modelo de ensemble (por exemplo, **Random Forest** ou **Gradient Boosting**) no dataset utilizado. Comparar seu desempenho com o modelo simples das semanas anteriores.
+- [ ] Plotar a curva ROC e calcular a AUC usando `roc_curve` e `auc` do Scikit‑Learn. Interpretar o trade‑off entre sensibilidade e especificidade.
 - [ ] Explorar outro método de ensemble (Bagging ou Voting Classifier) e discutir diferenças em relação ao Random Forest.
 
 ## Dia 11 — Seleção de modelos e valor esperado
 
 **Referência principal**
 
-* *DS para Negócios*, capítulo 7 – discute como usar **valor esperado** para avaliar modelos, levando em consideração custos e benefícios e comparando contra baselines【681657430915828†L174-L190】.
+* *DS para Negócios*, capítulo 7 – discute como usar **valor esperado** para avaliar modelos, levando em consideração custos e benefícios e comparando contra baselines.
 
 **Referência complementar**
 
@@ -93,8 +93,8 @@ Nesta semana você se concentra em **avaliar e validar modelos** de machine lear
 
 **Atividades**
 
-- [ ] Definir um cenário fictício (por exemplo, detecção de fraude com custos diferentes para falsos positivos e falsos negativos).  Estabelecer um valor monetário para cada tipo de erro.
-- [ ] Calcular o **valor esperado** ou lucro esperado para cada modelo treinado (árvore, Random Forest etc.), conforme a matriz de confusão e os custos/benefícios estabelecidos【681657430915828†L174-L190】.
+- [ ] Definir um cenário fictício (por exemplo, detecção de fraude com custos diferentes para falsos positivos e falsos negativos). Estabelecer um valor monetário para cada tipo de erro.
+- [ ] Calcular o **valor esperado** ou lucro esperado para cada modelo treinado (árvore, Random Forest etc.), conforme a matriz de confusão e os custos/benefícios estabelecidos.
 - [ ] Selecionar o modelo com maior valor esperado e justificar a escolha, mesmo que sua acurácia não seja a mais alta.
 - [ ] Documentar no resumo semanal um comparativo entre as métricas tradicionais e a métrica de valor esperado.
 
@@ -106,7 +106,7 @@ Nesta semana você se concentra em **avaliar e validar modelos** de machine lear
 
 **Atividades**
 
-- [ ] Escolher um novo conjunto de dados (por exemplo, `wine quality` ou um dataset de classificação binária do Kaggle).  Repetir todas as etapas: pré‑processamento, divisão, treinamento de pelo menos três modelos (árvore, logística, Random Forest, SVM etc.), validação cruzada e ajuste de hiperparâmetros.
+- [ ] Escolher um novo conjunto de dados (por exemplo, `wine quality` ou um dataset de classificação binária do Kaggle). Repetir todas as etapas: pré‑processamento, divisão, treinamento de pelo menos três modelos (árvore, logística, Random Forest, SVM etc.), validação cruzada e ajuste de hiperparâmetros.
 - [ ] Comparar os modelos com base em várias métricas (acurácia, F1, AUC, valor esperado) e decidir qual modelo seria implantado em produção e por quê.
 - [ ] Registrar as decisões e aprendizados em um relatório em `resumos/semana-02-resumo.md`.
 - [ ] Marcar as tarefas concluídas na checklist semanal.

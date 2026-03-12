@@ -1,6 +1,6 @@
 # Checklist Geral do Plano 2
 
-Use este checklist global para acompanhar sua evolução ao longo das oito semanas deste plano de estudos.  Marque cada item quando concluir todas as atividades da respectiva semana.
+Use este checklist global para acompanhar sua evolução ao longo das oito semanas deste plano de estudos. Marque cada item quando concluir todas as atividades da respectiva semana.
 
 - [ ] **Semana 1 — Fundamentos de Data Science e Aprendizado de Máquina**
 - [ ] **Semana 2 — Avaliação e Validação de Modelos**

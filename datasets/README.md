@@ -1,6 +1,6 @@
 # Datasets do Plano 2
 
-Nesta pasta você pode armazenar conjuntos de dados utilizados para exercícios e projetos ao longo do curso.  Alguns exercícios sugerem usar datasets clássicos (por exemplo, Iris, Wine, MNIST) via `scikit‑learn`, que podem ser carregados diretamente do pacote.  Caso prefira trabalhar com dados reais ou maiores, faça o download e coloque os arquivos aqui.
+Nesta pasta você pode armazenar conjuntos de dados utilizados para exercícios e projetos ao longo do curso. Alguns exercícios sugerem usar datasets clássicos (por exemplo, Iris, Wine, MNIST) via `scikit‑learn`, que podem ser carregados diretamente do pacote. Caso prefira trabalhar com dados reais ou maiores, faça o download e coloque os arquivos aqui.
 
 Sugestões de fontes de dados:
 

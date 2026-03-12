@@ -1,6 +1,6 @@
 # Semana 1 — Fundamentos de Data Science e Aprendizado de Máquina
 
-Nesta primeira semana você revisitará o processo de **Data Science**, os tipos de tarefas de mineração de dados e as categorias de aprendizado de máquina.  O objetivo é entender como transformar um problema de negócio em um problema de modelagem, conhecer as etapas essenciais (entendimento do negócio, preparação de dados, modelagem, avaliação e implantação)【681657430915828†L53-L66】 e experimentar algoritmos de classificação e regressão com Scikit‑Learn.
+Nesta primeira semana você revisitará o processo de **Data Science**, os tipos de tarefas de mineração de dados e as categorias de aprendizado de máquina. O objetivo é entender como transformar um problema de negócio em um problema de modelagem, conhecer as etapas essenciais (entendimento do negócio, preparação de dados, modelagem, avaliação e implantação) e experimentar algoritmos de classificação e regressão com Scikit‑Learn.
 
 ## Índice da semana
 
@@ -15,11 +15,11 @@ Nesta primeira semana você revisitará o processo de **Data Science**, os tipo
 
 **Referência principal**
 
-* *Data Science para Negócios*, capítulo 2: descreve as tarefas canônicas de mineração de dados, diferencia métodos supervisionados e não supervisionados e apresenta o processo de data science — Business Understanding, Data Understanding, Data Preparation, Modeling, Evaluation e Deployment【681657430915828†L53-L66】.
+* *Data Science para Negócios*, capítulo 2: descreve as tarefas canônicas de mineração de dados, diferencia métodos supervisionados e não supervisionados e apresenta o processo de data science — Business Understanding, Data Understanding, Data Preparation, Modeling, Evaluation e Deployment.
 
 **Referência complementar**
 
-* *Data Science para Negócios*, capítulos 3 e 4, que discutem seleção de atributos, segmentação supervisionada e modelos lineares【681657430915828†L78-L111】.
+* *Data Science para Negócios*, capítulos 3 e 4, que discutem seleção de atributos, segmentação supervisionada e modelos lineares.
 
 **Material on‑line**
 
@@ -27,7 +27,7 @@ Nesta primeira semana você revisitará o processo de **Data Science**, os tipo
 
 **Atividades**
 
-- [ ] Ler o capítulo 2 de *Data Science para Negócios* com foco no processo de data science.  Faça um resumo das seis etapas (entendimento do negócio, entendimento dos dados, preparação, modelagem, avaliação e implantação)【681657430915828†L53-L66】.
+- [ ] Ler o capítulo 2 de *Data Science para Negócios* com foco no processo de data science. Faça um resumo das seis etapas (entendimento do negócio, entendimento dos dados, preparação, modelagem, avaliação e implantação).
 - [ ] Identificar em um problema real (por exemplo, previsão de churn ou recomendação de produto) como cada etapa do processo se aplica.
 - [ ] Criar um mapa mental com as principais tarefas canônicas (classificação, regressão, agrupamento, detecção de anomalias) e diferenciar problemas supervisionados e não supervisionados.
 - [ ] Registrar suas anotações em `resumos/semana-01-resumo.md`.
@@ -36,11 +36,11 @@ Nesta primeira semana você revisitará o processo de **Data Science**, os tipo
 
 **Referência principal**
 
-* *Hands‑On Machine Learning* (cap. 1) e resumo do blog de Jack McKew: o capítulo define Machine Learning, apresenta situações onde o ML é útil e explica as categorias de algoritmos — supervisionado, não supervisionado, semissupervisionado e por reforço, bem como as distinções entre aprendizado em batch vs online e aprendizado baseado em instância vs baseado em modelos【943998856151411†L32-L44】.
+* *Hands‑On Machine Learning* (cap. 1) e resumo do blog de Jack McKew: o capítulo define Machine Learning, apresenta situações onde o ML é útil e explica as categorias de algoritmos — supervisionado, não supervisionado, semissupervisionado e por reforço, bem como as distinções entre aprendizado em batch vs online e aprendizado baseado em instância vs baseado em modelos.
 
 **Referência complementar**
 
-* *Data Science para Negócios*, capítulo 2 (seção “Supervised vs Unsupervised Methods”)【681657430915828†L53-L66】.
+* *Data Science para Negócios*, capítulo 2 (seção “Supervised vs Unsupervised Methods”).
 
 **Material on‑line**
 
@@ -48,7 +48,7 @@ Nesta primeira semana você revisitará o processo de **Data Science**, os tipo
 
 **Atividades**
 
-- [ ] Ler o resumo de Jack McKew e o capítulo 1 de *Hands‑On Machine Learning*.  Resumir os quatro tipos principais de aprendizado (supervisionado, não supervisionado, semissupervisionado e reforço) e os conceitos de aprendizado online/batch e instância/modelo【943998856151411†L32-L44】.
+- [ ] Ler o resumo de Jack McKew e o capítulo 1 de *Hands‑On Machine Learning*. Resumir os quatro tipos principais de aprendizado (supervisionado, não supervisionado, semissupervisionado e reforço) e os conceitos de aprendizado online/batch e instância/modelo.
 - [ ] Listar ao menos dois exemplos de problemas para cada tipo (ex.: classificação de imagens para supervisionado, clustering de clientes para não supervisionado).
 - [ ] Fazer um quiz rápido (no Kaggle Learn ou outro site) sobre classificação de problemas em tipos de ML.
 - [ ] Registrar as respostas e reflexões em seu resumo semanal.
@@ -57,7 +57,7 @@ Nesta primeira semana você revisitará o processo de **Data Science**, os tipo
 
 **Referência principal**
 
-* *Data Science para Negócios*, seções sobre data preparation (cap. 2)【681657430915828†L53-L66】.
+* *Data Science para Negócios*, seções sobre data preparation (cap. 2).
 
 **Referência complementar**
 
@@ -82,7 +82,7 @@ Nesta primeira semana você revisitará o processo de **Data Science**, os tipo
 
 **Referência complementar**
 
-* *Data Science para Negócios*, capítulos 3 e 4 — seleção de atributos e ajuste de modelos lineares【681657430915828†L78-L111】.
+* *Data Science para Negócios*, capítulos 3 e 4 — seleção de atributos e ajuste de modelos lineares.
 
 **Material on‑line**
 
@@ -90,16 +90,16 @@ Nesta primeira semana você revisitará o processo de **Data Science**, os tipo
 
 **Atividades**
 
-- [ ] Utilizar o dataset preparado no dia 3 para treinar um modelo de **regressão** (se a variável de saída for contínua) ou **classificação** (se for categórica).  Comece com **regressão linear** ou **classificador de árvore de decisão**.
+- [ ] Utilizar o dataset preparado no dia 3 para treinar um modelo de **regressão** (se a variável de saída for contínua) ou **classificação** (se for categórica). Comece com **regressão linear** ou **classificador de árvore de decisão**.
 - [ ] Ajustar hiperparâmetros básicos (profundidade da árvore, critério de divisão) e avaliar o modelo com validação simples (hold‑out) e `score()` do Scikit‑Learn.
 - [ ] Registrar métricas de desempenho iniciais (RMSE para regressão ou acurácia para classificação).
-- [ ] Explorar a importância das features (por exemplo, `feature_importances_` em árvores) e relacionar com as discussões de seleção de atributos【681657430915828†L78-L111】.
+- [ ] Explorar a importância das features (por exemplo, `feature_importances_` em árvores) e relacionar com as discussões de seleção de atributos.
 
 ## Dia 5 — Pensamento analítico de dados
 
 **Referência principal**
 
-* *Data Science para Negócios*, capítulo 1 — discute a ubiquidade das oportunidades de dados, a importância do pensamento analítico e como dados e capacidade analítica podem ser ativos estratégicos【681657430915828†L37-L49】.
+* *Data Science para Negócios*, capítulo 1 — discute a ubiquidade das oportunidades de dados, a importância do pensamento analítico e como dados e capacidade analítica podem ser ativos estratégicos.
 
 **Referência complementar**
 
@@ -111,7 +111,7 @@ Nesta primeira semana você revisitará o processo de **Data Science**, os tipo
 
 **Atividades**
 
-- [ ] Ler o capítulo 1 de *Data Science para Negócios* e destacar as razões pelas quais dados são considerados ativos estratégicos e como o pensamento analítico de dados difere de uma abordagem apenas técnica【681657430915828†L37-L49】.
+- [ ] Ler o capítulo 1 de *Data Science para Negócios* e destacar as razões pelas quais dados são considerados ativos estratégicos e como o pensamento analítico de dados difere de uma abordagem apenas técnica.
 - [ ] Escolher uma notícia ou case de empresa e explicar como a ciência de dados foi aplicada para gerar valor (ex.: recomendação de filmes, detecção de fraudes, previsão de demanda).
 - [ ] Escrever um parágrafo no resumo semanal refletindo sobre o valor da ciência de dados e sua relação com os objetivos de negócio.
 

@@ -1,6 +1,6 @@
 # Semana 4 — Redes Neurais e Deep Learning
 
-Após dominar fundamentos e técnicas clássicas, esta semana introduz **redes neurais** e conceitos de **deep learning**.  Você aprenderá sobre perceptrons e funções de ativação, montará modelos `Keras`/`TensorFlow` simples, explorará arquiteturas de rede (MLPs, CNNs) e terá um primeiro contato com **transformers**, ponte para os modelos de linguagem da próxima semana.
+Após dominar fundamentos e técnicas clássicas, esta semana introduz **redes neurais** e conceitos de **deep learning**. Você aprenderá sobre perceptrons e funções de ativação, montará modelos `Keras`/`TensorFlow` simples, explorará arquiteturas de rede (MLPs, CNNs) e terá um primeiro contato com **transformers**, ponte para os modelos de linguagem da próxima semana.
 
 ## Índice da semana
 
@@ -24,7 +24,7 @@ Após dominar fundamentos e técnicas clássicas, esta semana introduz **redes n
 **Atividades**
 
 - [ ] Revisar os conceitos de neurônio artificial, pesos e bias, funções de ativação (sigmoide, ReLU, tanh) e como o **backpropagation** ajusta pesos em redes.
-- [ ] Criar um notebook `semana04_neural_basics.ipynb` e implementar uma rede de perceptron simples no Keras para classificar o dataset de flores Iris.  Comparar o desempenho com o classificador tradicional da semana 1.
+- [ ] Criar um notebook `semana04_neural_basics.ipynb` e implementar uma rede de perceptron simples no Keras para classificar o dataset de flores Iris. Comparar o desempenho com o classificador tradicional da semana 1.
 - [ ] Explorar a mudança de função de ativação (ReLU vs sigmoide) e número de neurônios em cada camada.
 - [ ] Registrar no resumo como a escolha da arquitetura influencia a capacidade de aprender relações não lineares.
 
@@ -40,9 +40,9 @@ Após dominar fundamentos e técnicas clássicas, esta semana introduz **redes n
 
 **Atividades**
 
-- [ ] Estender o modelo do dia 19 para uma **rede neural profunda** (Múltiplas camadas).  Utilizar otimizadores diferentes (SGD, Adam) e comparar a convergência e performance.
-- [ ] Aplicar **dropout** e **regularização L2** para reduzir overfitting.  Avaliar a influência nas curvas de treinamento e validação.
-- [ ] Experimentar em um dataset mais complexo (por exemplo, `Fashion-MNIST` via Keras).  Preprocessar as imagens e treinar uma rede simples.
+- [ ] Estender o modelo do dia 19 para uma **rede neural profunda** (Múltiplas camadas). Utilizar otimizadores diferentes (SGD, Adam) e comparar a convergência e performance.
+- [ ] Aplicar **dropout** e **regularização L2** para reduzir overfitting. Avaliar a influência nas curvas de treinamento e validação.
+- [ ] Experimentar em um dataset mais complexo (por exemplo, `Fashion-MNIST` via Keras). Preprocessar as imagens e treinar uma rede simples.
 - [ ] Escrever no resumo as lições aprendidas sobre escolha de otimizadores e regularização.
 
 ## Dia 21 — Convoluções e sequências (opcional)
@@ -55,7 +55,7 @@ Esta sessão é opcional e introdutória para quem deseja explorar **redes neura
 
 **Atividades**
 
-- [ ] Implementar uma **CNN** simples para classificação de dígitos (`MNIST`).  Usar `Conv2D`, `MaxPooling2D` e `Flatten`.  Comparar com a rede densa do dia 20.
+- [ ] Implementar uma **CNN** simples para classificação de dígitos (`MNIST`). Usar `Conv2D`, `MaxPooling2D` e `Flatten`. Comparar com a rede densa do dia 20.
 - [ ] (Opcional) Explorar uma **rede recorrente simples** (LSTM ou GRU) em uma tarefa de previsão de texto ou séries temporais.
 - [ ] Registrar no resumo se a convolução trouxe ganhos de performance e como ela difere de redes densas na captura de padrões locais.
 
@@ -63,7 +63,7 @@ Esta sessão é opcional e introdutória para quem deseja explorar **redes neura
 
 **Referência principal**
 
-* *Hands‑On Large Language Models* – capítulos iniciais que explicam a arquitetura dos **transformers**, mecanismos de atenção e como modelos de linguagem são pré‑treinados e adaptados para diferentes tarefas【51140306659036†L25-L49】.
+* *Hands‑On Large Language Models* – capítulos iniciais que explicam a arquitetura dos **transformers**, mecanismos de atenção e como modelos de linguagem são pré‑treinados e adaptados para diferentes tarefas.
 
 **Material on‑line**
 
@@ -71,8 +71,8 @@ Esta sessão é opcional e introdutória para quem deseja explorar **redes neura
 
 **Atividades**
 
-- [ ] Ler sobre a arquitetura de **transformers**: self‑attention, multi‑head attention, positional encoding e camadas feed‑forward.  Entender por que transformers substituíram RNNs em muitas tarefas de NLP【51140306659036†L25-L49】.
-- [ ] Usar `transformers` da Hugging Face para carregar um modelo pré‑treinado (por exemplo, `bert-base-uncased`).  Examinar o tokenizador e gerar embeddings de sentenças.
+- [ ] Ler sobre a arquitetura de **transformers**: self‑attention, multi‑head attention, positional encoding e camadas feed‑forward. Entender por que transformers substituíram RNNs em muitas tarefas de NLP.
+- [ ] Usar `transformers` da Hugging Face para carregar um modelo pré‑treinado (por exemplo, `bert-base-uncased`). Examinar o tokenizador e gerar embeddings de sentenças.
 - [ ] Treinar (ou ajustar levemente) um modelo `DistilBERT` para classificar sentimento de frases pequenas (pode usar um dataset como `IMDB` ou `SST2` via `datasets` da Hugging Face).
 - [ ] Documentar no resumo como a atenção permite que o modelo relacione palavras em diferentes posições e como as embeddings podem ser usadas em tarefas de machine learning.
 
@@ -80,7 +80,7 @@ Esta sessão é opcional e introdutória para quem deseja explorar **redes neura
 
 **Referência principal**
 
-* *Hands‑On Large Language Models* – seções sobre ajuste fino e aprendizado por instrução, cobrindo técnicas como **LoRA** (Low‑Rank Adaptation) e **in‑context learning**【51140306659036†L25-L49】.
+* *Hands‑On Large Language Models* – seções sobre ajuste fino e aprendizado por instrução, cobrindo técnicas como **LoRA** (Low‑Rank Adaptation) e **in‑context learning**.
 
 **Material on‑line**
 
@@ -88,8 +88,8 @@ Esta sessão é opcional e introdutória para quem deseja explorar **redes neura
 
 **Atividades**
 
-- [ ] Estudar a diferença entre **fine‑tuning** completo e métodos leves como **LoRA**.  Ler exemplos de uso em *Hands‑On LLM*【51140306659036†L25-L49】.
-- [ ] Escolher um modelo pré‑treinado (por exemplo, `gpt2-small`) e realizar fine‑tuning em um conjunto simples (ex.: notícias esportivas).  Registrar tempo de treino e tamanho dos arquivos adaptados.
+- [ ] Estudar a diferença entre **fine‑tuning** completo e métodos leves como **LoRA**. Ler exemplos de uso em *Hands‑On LLM*.
+- [ ] Escolher um modelo pré‑treinado (por exemplo, `gpt2-small`) e realizar fine‑tuning em um conjunto simples (ex.: notícias esportivas). Registrar tempo de treino e tamanho dos arquivos adaptados.
 - [ ] Experimentar **in‑context learning** com modelos disponíveis via API (por exemplo, ChatGPT ou Llama 2) para realizar tarefas de tradução ou sumarização sem treinamento adicional.
 - [ ] Analisar quando faz sentido ajustar um modelo e quando usar in‑context learning e escrever suas conclusões no resumo.
 
@@ -101,8 +101,8 @@ Esta sessão é opcional e introdutória para quem deseja explorar **redes neura
 
 **Atividades**
 
-- [ ] Escolher um problema do mundo real que pode ser resolvido com redes neurais (por exemplo, classificação de sentimentos, detecção de fraudes, previsão de vendas).  Obter um dataset adequado e aplicar as etapas completas de pré‑processamento.
-- [ ] Construir pelo menos dois modelos: um **MLP** e um **transformer** (ou CNN se for imagem).  Treinar, ajustar e comparar as performances em métricas relevantes.
+- [ ] Escolher um problema do mundo real que pode ser resolvido com redes neurais (por exemplo, classificação de sentimentos, detecção de fraudes, previsão de vendas). Obter um dataset adequado e aplicar as etapas completas de pré‑processamento.
+- [ ] Construir pelo menos dois modelos: um **MLP** e um **transformer** (ou CNN se for imagem). Treinar, ajustar e comparar as performances em métricas relevantes.
 - [ ] Utilizar técnicas de regularização e avaliar com validação cruzada para evitar overfitting.
 - [ ] Documentar os resultados em um relatório no resumo (`resumos/semana-04-resumo.md`) e refletir sobre qual modelo seria implantado e por quê.
 - [ ] Marcar as tarefas concluídas no checklist semanal.
