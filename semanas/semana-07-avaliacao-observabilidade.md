@@ -1,104 +1,98 @@
-# Semana 7 — Avaliação, Observabilidade e Métricas em Multiagentes
+# Semana 7 — Avaliação e observabilidade de LLMs e agentes
 
-Com os fundamentos de multiagentes estabelecidos, esta semana aprofunda estratégias de **avaliação de sistemas** e explora a **observabilidade de LLMs e agentes**. Você aprenderá por que a observabilidade de LLMs é diferente da observabilidade tradicional de software, quais são os pilares e componentes necessários, como detectar alucinações e vieses, e como medir o desempenho de um sistema multiagente em produção.
+## Índice
+- [Dia 37 — Avaliação de agentes por camada](#dia-37--avaliação-de-agentes-por-camada)
+- [Dia 38 — Observabilidade de LLMs](#dia-38--observabilidade-de-llms)
+- [Dia 39 — Traces, metrics e logs com OpenTelemetry](#dia-39--traces-metrics-e-logs-com-opentelemetry)
+- [Dia 40 — Tracing e avaliação com LangSmith / Phoenix](#dia-40--tracing-e-avaliação-com-langsmith--phoenix)
+- [Dia 41 — Alucinação, groundedness, segurança e anonimização](#dia-41--alucinação-groundedness-segurança-e-anonimização)
+- [Dia 42 — Projeto de avaliação e observabilidade](#dia-42--projeto-de-avaliação-e-observabilidade)
 
-## Índice da semana
+## Links externos da semana
+- [LangSmith Observability](https://docs.langchain.com/langsmith/observability)
+- [LangSmith Observability Quickstart](https://docs.langchain.com/langsmith/observability-quickstart)
+- [OpenTelemetry Signals](https://opentelemetry.io/docs/concepts/signals/)
+- [Phoenix — Evaluating Multi-Agent Systems](https://arize.com/docs/phoenix/learn/evaluating-multi-agent-systems)
+- [Phoenix — Evaluate CrewAI agents](https://arize.com/docs/phoenix/integrations/llm-providers/google-gen-ai/google-gen-ai-evals-1)
 
-- [Dia 37 — Revisão de avaliação de multiagentes](#dia-37--revisão-de-avaliação-de-multiagentes)
-- [Dia 38 — Fundamentos de observabilidade de LLMs](#dia-38--fundamentos-de-observabilidade-de-llms)
-- [Dia 39 — Pilares e componentes da observabilidade](#dia-39--pilares-e-componentes-da-observabilidade)
-- [Dia 40 — Detecção de alucinações e vieses](#dia-40--detecção-de-alucinações-e-vieses)
-- [Dia 41 — Observabilidade de agentes e tracing](#dia-41--observabilidade-de-agentes-e-tracing)
-- [Dia 42 — Projeto: monitoramento e avaliação em prática](#dia-42--projeto-monitoramento-e-avaliação-em-prática)
-
-## Dia 37 — Revisão de avaliação de multiagentes
-
-**Referência principal**
-
-* Revisão das estratégias de avaliação vistas no dia 34: **Agent Handoff Evaluation**, **System‑Level Evaluation** e **Coordination Evaluation**.
-
-**Atividades**
-
-- [ ] Revisar suas anotações da semana anterior sobre as três estratégias de avaliação e as métricas propostas.
-- [ ] Pensar em exemplos concretos de quando cada estratégia seria usada (por exemplo, handoff evaluation em chatbots com múltiplos agentes, system-level evaluation para medir latência total e taxa de sucesso).
-- [ ] Atualizar seu resumo com qualquer nova ideia ou métrica que tenha surgido.
-
-## Dia 38 — Fundamentos de observabilidade de LLMs
+## Dia 37 — Avaliação de agentes por camada
 
 **Referência principal**
+- *Building Applications with AI Agents*, validation and measurement
+- Phoenix docs
 
-* Artigo da **Snorkel AI** sobre observabilidade de LLMs – explica que monitorar a qualidade de LLMs envolve medir precisão, completude, relevância e segurança das respostas, e que observabilidade de LLMs difere da observabilidade de sistemas tradicionais.
-
-**Referência complementar**
-
-* Trechos do mesmo artigo que discutem os desafios de depurar LLMs, como respostas infinitas, dificuldade de replicação e detecção de drift.
+**Objetivo**
+Separar avaliação por handoff, agente e sistema.
 
 **Atividades**
+- [ ] Definir avaliação de handoff
+- [ ] Definir avaliação sistêmica
+- [ ] Definir avaliação de coordenação
+- [ ] Criar tabela de métricas por camada
 
-- [ ] Ler o artigo da Snorkel AI para entender por que os métodos tradicionais de monitoramento de software não são suficientes para LLMs. Anotar os pilares da observabilidade de LLMs: precisão, completude, relevância e segurança.
-- [ ] Identificar exemplos de falhas em LLMs (alucinações, respostas incompletas, viés, linguagem imprópria) e discutir como cada pilar da observabilidade pode ajudar a detectá‑las.
-- [ ] Registrar no resumo as diferenças entre monitorar LLMs e monitorar pipelines de ML tradicionais (por exemplo, outputs inesgotáveis, dificuldade de explicar decisões etc.).
-
-## Dia 39 — Pilares e componentes da observabilidade
+## Dia 38 — Observabilidade de LLMs
 
 **Referência principal**
+- *Building Applications with AI Agents*, monitoring in production
+- docs do LangSmith observability
 
-* Snorkel AI – seções que descrevem os princípios da observabilidade de LLMs (orientada por dados, métricas em tempo real, transparência, insights preditivos) e os componentes necessários: monitoramento de respostas, latência e throughput, padrões de uso, detecção de drift, detecção de erros e feedback loop.
-
-**Referência complementar**
-
-* Documentação de ferramentas como **LangSmith**, **Langfuse** ou **Phoenix**, que implementam tracing e dashboards.
+**Objetivo**
+Entender por que LLM apps exigem observabilidade diferente.
 
 **Atividades**
+- [ ] Definir run, trace e thread
+- [ ] Explicar por que debugging de LLM é diferente de software tradicional
+- [ ] Listar 10 campos que devem ir para telemetria
+- [ ] Definir métricas de latência, custo e qualidade
 
-- [ ] Estudar os princípios da observabilidade (por exemplo, uso de métricas orientadas a dados e transparência) e como cada componente (monitoramento de latência, drift, feedback) contribui para a detecção de problemas.
-- [ ] Criar uma checklist de componentes que você deseja implementar em seu projeto de LLMs (ex.: coletar métricas de latência e throughput, registrar prompts e respostas, implementar anotação de segurança).
-- [ ] Explorar uma ferramenta de observabilidade (como **LangSmith** ou **Phoenix**) para visualizar runs e traces. Anotar quais informações são coletadas e como elas ajudam na depuração.
-
-## Dia 40 — Detecção de alucinações e vieses
+## Dia 39 — Traces, metrics e logs com OpenTelemetry
 
 **Referência principal**
+- OpenTelemetry docs
 
-* Snorkel AI – discute que alucinações e vieses são aspectos centrais a monitorar em LLMs e apresenta princípios para detecção e mitigação.
-
-**Referência complementar**
-
-* Artigos da OpenAI ou Anthropic sobre **red teaming** e técnicas de verificação de fatos.
+**Objetivo**
+Criar base padrão de instrumentação.
 
 **Atividades**
+- [ ] Ler sobre traces, metrics e logs
+- [ ] Desenhar mapa de telemetria do seu sistema
+- [ ] Definir atributos obrigatórios
+- [ ] Planejar correlação entre métricas e traces
 
-- [ ] Ler trechos do artigo da Snorkel AI sobre alucinações e vieses. Anotar o que caracteriza uma alucinação e como diferenciar de imprecisão menor.
-- [ ] Testar seu modelo ou pipeline RAG com perguntas adversárias ou fora do escopo e observar se ele gera alucinações. Registrar exemplos.
-- [ ] Explorar técnicas para mitigar alucinações: RAG, filtragem de respostas por classificadores auxiliares, penalizações no objetivo de geração, prompts mais restritos.
-- [ ] Pesquisar como medir viés (ex.: proporção de respostas estereotipadas) e considerar incorporar métricas de fair‑ness no monitoramento.
-
-## Dia 41 — Observabilidade de agentes e tracing
+## Dia 40 — Tracing e avaliação com LangSmith / Phoenix
 
 **Referência principal**
+- LangSmith docs
+- Phoenix docs
 
-* Blog da **LangChain** – afirma que para depurar agentes é necessário entender como eles raciocinam, e que a observabilidade de agentes requer **runs**, **traces** e **threads** para rastrear cada passo de decisão.
-
-**Referência complementar**
-
-* Documentação do **LangSmith** e exemplos de uso de tracing com múltiplos agentes.
+**Objetivo**
+Ligar avaliação e observabilidade.
 
 **Atividades**
+- [ ] Instrumentar um app com tracing
+- [ ] Capturar execução de RAG ou agente
+- [ ] Ver passos, tools, latência e falhas
+- [ ] Comparar LangSmith e Phoenix no seu contexto
 
-- [ ] Ler o blog da LangChain e anotar por que o comportamento dos agentes não pode ser depurado apenas com logs tradicionais; compreender a necessidade de rastrear prompts, contextos, ferramentas chamadas e respostas.
-- [ ] Configurar **LangSmith** ou **Langfuse** em um pipeline multiagente simples (do projeto da semana 6) para coletar runs e traces. Inspecionar o histórico de chamadas, tempo de resposta e prompts gerados.
-- [ ] Criar gráficos ou tabelas mostrando a sequência de interações entre agentes e destacar onde ocorreram atrasos ou perdas de contexto.
-- [ ] Registrar no resumo como o tracing ajuda a entender e melhorar a coordenação entre agentes.
-
-## Dia 42 — Projeto: monitoramento e avaliação em prática
+## Dia 41 — Alucinação, groundedness, segurança e anonimização
 
 **Referência principal**
+- docs LangSmith sobre anonymizers
+- sua stack de avaliação
 
-* Todos os materiais estudados nas semanas 6 e 7.
+**Objetivo**
+Entrar em qualidade e segurança operacional.
 
 **Atividades**
+- [ ] Definir hallucination, groundedness e faithfulness
+- [ ] Criar checklist manual de inspeção
+- [ ] Planejar anonimização de dados sensíveis nos traces
+- [ ] Definir flags de segurança e review humana
 
-- [ ] Expandir o pipeline multiagente construído na semana 6 para incluir ferramentas de observabilidade. Instrumentar cada agente para coletar métricas como tempo de execução, número de tokens e resultado da geração.
-- [ ] Implementar ou configurar um painel simples (pode ser com pandas ou uma biblioteca de dashboards) para visualizar métricas em tempo real e identificar pontos de falha.
-- [ ] Avaliar o sistema em relação às três estratégias (handoff, system‑level, coordination). Registrar métricas quantitativas e qualitativas (por exemplo, satisfação do usuário ou revisão manual das respostas).
-- [ ] Escrever um relatório em `resumos/semana-07-resumo.md` explicando o processo de instrumentação, o que foi observado, quais problemas foram encontrados (alucinações, atrasos, erros de coordenação) e possíveis melhorias.
-- [ ] Marcar as tarefas concluídas no checklist semanal.
+## Dia 42 — Projeto de avaliação e observabilidade
+
+**Entregável**
+- [ ] Instrumentar o projeto RAG ou multiagente
+- [ ] Criar dashboard mínimo de métricas
+- [ ] Criar dataset de regressão com casos bons e ruins
+- [ ] Resumo em `resumos/semana-07-resumo.md`

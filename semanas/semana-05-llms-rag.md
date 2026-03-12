@@ -1,112 +1,101 @@
-# Semana 5 — Modelos de Linguagem e RAG
+# Semana 5 — LLMs, embeddings e RAG de verdade
 
-Esta semana marca a transição para o mundo dos **modelos de linguagem de grande porte (LLMs)**. Você aprenderá o que são embeddings e como realizar busca semântica, praticará **engenharia de prompts**, construirá um pipeline de **RAG** (retrieval‑augmented generation) e explorará técnicas de ajuste fino. O objetivo é preparar terreno para sistemas multiagentes nas semanas seguintes.
+## Índice
+- [Dia 25 — LLMs, tokens e embeddings](#dia-25--llms-tokens-e-embeddings)
+- [Dia 26 — Retrieval: chunking, indexing e busca](#dia-26--retrieval-chunking-indexing-e-busca)
+- [Dia 27 — Hybrid retrieval, reranking e query transformation](#dia-27--hybrid-retrieval-reranking-e-query-transformation)
+- [Dia 28 — Arquitetura RAG ponta a ponta](#dia-28--arquitetura-rag-ponta-a-ponta)
+- [Dia 29 — Avaliação de RAG](#dia-29--avaliação-de-rag)
+- [Dia 30 — Projeto RAG robusto](#dia-30--projeto-rag-robusto)
 
-## Índice da semana
+## Links externos da semana
+- [Hugging Face Course](https://huggingface.co/course)
+- [DeepLearning.AI — Retrieval Augmented Generation (RAG)](https://www.deeplearning.ai/courses/retrieval-augmented-generation-rag/)
+- [LangSmith — Trace a RAG app](https://docs.langchain.com/langsmith/observability)
+- [RAG paper](https://doi.org/10.48550/arXiv.2005.11401)
 
-- [Dia 25 — Introdução a LLMs e embeddings](#dia-25--introdução-a-llms-e-embeddings)
-- [Dia 26 — Busca semântica e bases vetoriais](#dia-26--busca-semântica-e-bases-vetoriais)
-- [Dia 27 — Engenharia de prompts e avaliação de saídas](#dia-27--engenharia-de-prompts-e-avaliação-de-saídas)
-- [Dia 28 — Retrieval‑Augmented Generation (RAG)](#dia-28--retrieval-augmented-generation-rag)
-- [Dia 29 — Ajuste fino de LLMs e LoRA](#dia-29--ajuste-fino-de-llms-e-lora)
-- [Dia 30 — Projeto: pipeline generativo completo](#dia-30--projeto-pipeline-generativo-completo)
-
-## Dia 25 — Introdução a LLMs e embeddings
-
-**Referência principal**
-
-* *Hands‑On Large Language Models* – capítulos iniciais que descrevem como usar LLMs pré‑treinados para tarefas de copywriting, sumarização e classificação, e introduzem o conceito de embeddings e semântica de busca.
-
-**Material on‑line**
-
-* Artigos da Hugging Face sobre embeddings (`sentence-transformers`) e modelos `OpenAI/ada-002`.
-
-**Atividades**
-
-- [ ] Ler a introdução do *Hands‑On LLM* para entender como os LLMs são usados em tarefas de texto, explorando copywriting, sumarização e classificação.
-- [ ] Entender o conceito de **embedding**: representações vetoriais densas que capturam semântica. Ler tutoriais sobre `SentenceTransformer` e `OpenAI Embeddings`.
-- [ ] Usar um modelo de embeddings (`all-MiniLM-L6-v2` ou `text-embedding-ada-002`) para converter um conjunto de frases ou documentos em vetores e visualizar a similaridade por meio de distância coseno.
-- [ ] Escrever no resumo como embeddings superam bag‑of‑words na comparação semântica.
-
-## Dia 26 — Busca semântica e bases vetoriais
+## Dia 25 — LLMs, tokens e embeddings
 
 **Referência principal**
+- *Hands-On Large Language Models*
 
-* *Hands‑On LLM* – seções sobre construção de sistemas de busca semântica além de correspondência por palavras‑chave, utilizando embeddings e índices vetoriais.
+**Referência complementar**
+- Hugging Face Course
 
-**Material on‑line**
-
-* Tutoriais sobre **FAISS**, **Chroma** ou **Weaviate** para armazenamento e recuperação de vetores.
+**Objetivo**
+Entender base conceitual antes de montar RAG.
 
 **Atividades**
+- [ ] Revisar tokens, contexto, embeddings e similaridade
+- [ ] Gerar embeddings de documentos
+- [ ] Comparar coseno entre consultas e documentos
+- [ ] Anotar diferença entre embedding de sentença e geração autoregressiva
 
-- [ ] Selecionar um corpus pequeno (ex.: artigos de blog, FAQs) e gerar embeddings para cada documento.
-- [ ] Construir um índice vetorial com uma biblioteca como **FAISS** ou **Chroma** e implementar uma função de busca que retorne os documentos mais semelhantes a uma consulta em linguagem natural.
-- [ ] Comparar os resultados da busca semântica com uma busca por palavras‑chave (TF‑IDF) e anotar diferenças qualitativas.
-- [ ] Registrar no resumo as vantagens de índices vetoriais e como eles serão usados no pipeline RAG.
-
-## Dia 27 — Engenharia de prompts e avaliação de saídas
+## Dia 26 — Retrieval: chunking, indexing e busca
 
 **Referência principal**
+- *Hands-On Large Language Models*
+- *AI Agents in Action*, cap. de memória e conhecimento
 
-* *Hands‑On LLM* – seções sobre **prompt engineering**, demonstrando como formular instruções claras, ajustar tom e estilo, e melhorar a qualidade das respostas.
-
-**Material on‑line**
-
-* Blogposts de empresas (OpenAI, Anthropic) sobre melhores práticas de prompts; guias como “Prompt Engineering Guide”.
+**Objetivo**
+Montar o lado de recuperação corretamente.
 
 **Atividades**
+- [ ] Comparar chunking por caracteres, sentenças e tokens
+- [ ] Definir estratégia de metadata
+- [ ] Indexar documentos em base vetorial
+- [ ] Medir qualitativamente se o chunk ficou grande demais ou pequeno demais
 
-- [ ] Escrever diferentes prompts para a mesma tarefa (por exemplo, resumir um artigo) e observar como a formulação altera a saída de um modelo (pode usar `gpt-3.5-turbo` via API ou `OpenAssistant` local).
-- [ ] Experimentar técnicas de **few‑shot prompting** (incluir exemplos no prompt) e **chain‑of‑thought** (pedir para mostrar raciocínio passo a passo). Avaliar impacto na qualidade e completude da resposta.
-- [ ] Discutir em seu resumo a importância de prompts claros e específicos e como pequenos ajustes podem reduzir alucinações.
-- [ ] Criar um checklist de boas práticas de prompt engineering para futura referência.
-
-## Dia 28 — Retrieval‑Augmented Generation (RAG)
+## Dia 27 — Hybrid retrieval, reranking e query transformation
 
 **Referência principal**
+- *Hands-On Large Language Models*
+- docs de retrieval / vector DB do stack escolhido
 
-* *Hands‑On LLM* – seções que mostram como combinar embeddings, busca semântica e modelos generativos para criar pipelines RAG.
-
-**Material on‑line**
-
-* Tutoriais do **LangChain** e **LlamaIndex** que implementam RAG usando LLMs e índices vetoriais.
+**Objetivo**
+Ir além do RAG “tutorial”.
 
 **Atividades**
+- [ ] Estudar dense retrieval vs sparse retrieval
+- [ ] Montar teste simples de busca híbrida
+- [ ] Adicionar reranking
+- [ ] Testar query rewrite ou decomposition
+- [ ] Escrever quando vale o custo extra
 
-- [ ] Revisar a arquitetura RAG: 1) gerar embeddings e armazenar em base vetorial; 2) recuperar documentos relevantes; 3) passar a consulta e os documentos recuperados como contexto para o modelo gerador; 4) gerar a resposta.
-- [ ] Implementar um pipeline RAG simples com **LangChain** ou **LlamaIndex**: criar a base vetorial (FAISS/Chroma), executar a consulta, recuperar trechos relevantes e gerar uma resposta com `GPT‑3.5` ou `Llama 2`.
-- [ ] Avaliar a qualidade das respostas com e sem RAG para perguntas factuais; analisar se a busca reduz alucinações.
-- [ ] Registrar no resumo benefícios e desafios do RAG, como atualização dinâmica de conhecimento e necessidade de curar o corpus.
-
-## Dia 29 — Ajuste fino de LLMs e LoRA
+## Dia 28 — Arquitetura RAG ponta a ponta
 
 **Referência principal**
+- *Hands-On Large Language Models*
+- *AI Agents in Action*, cap. de RAG e memória
 
-* *Hands‑On LLM* – seções sobre **fine‑tuning** e **LoRA**, explicando como adaptar modelos para tarefas específicas e usar treinamento de baixa rank para reduzir custo e requisitos de armazenamento.
-
-**Material on‑line**
-
-* Tutoriais do Hugging Face “Parameter‑Efficient Fine‑Tuning” (PEFT).
+**Objetivo**
+Entender todos os blocos do sistema.
 
 **Atividades**
+- [ ] Desenhar arquitetura de ingestão, indexação, retrieval, reranking e geração
+- [ ] Definir fallback quando retrieval falhar
+- [ ] Definir cache
+- [ ] Definir logging básico por etapa
 
-- [ ] Ler sobre diferenças entre fine‑tuning completo e **LoRA**. Entender por que LoRA permite treinar poucas matrizes e congelar o restante do modelo.
-- [ ] Usar a biblioteca `peft` do Hugging Face para treinar um modelo (`flan‑t5` ou `mistral‑7b`) em uma tarefa curta (por exemplo, classificar sentimentos). Registrar tempo de treino e tamanho do checkpoint LoRA.
-- [ ] Avaliar se o ajuste fino melhora substancialmente em relação a prompt engineering e RAG. Discutir trade‑offs entre custo computacional, necessidade de dados rotulados e performance.
-- [ ] Escrever no resumo uma reflexão sobre quando vale a pena ajustar um modelo e quando RAG ou prompts são suficientes.
-
-## Dia 30 — Projeto: pipeline generativo completo
+## Dia 29 — Avaliação de RAG
 
 **Referência principal**
+- paper RAG
+- docs LangSmith / avaliação de apps de LLM
 
-* Todo o material estudado na semana.
+**Objetivo**
+Separar avaliação de retrieval e de geração.
 
 **Atividades**
+- [ ] Medir Recall@k ou métrica simples de recuperação
+- [ ] Avaliar faithfulness / groundedness manualmente em um conjunto pequeno
+- [ ] Separar falha de retrieval de falha de geração
+- [ ] Montar um mini dataset de regressão para o sistema
 
-- [ ] Escolher um tema de interesse (por exemplo, perguntas frequentes de um produto, respostas a consultas jurídicas básicas ou tutoriais de software). Compilar um corpus de documentos relevantes e construir uma base vetorial.
-- [ ] Criar um pipeline RAG completo: ingestar documentos, criar embeddings, indexar, recuperar e gerar respostas. Testar a pipeline com múltiplas perguntas.
-- [ ] Implementar pelo menos uma técnica de avaliação de saídas (por exemplo, classificação por outro modelo ou verificação humana) para medir relevância e factualidade.
-- [ ] Opcionalmente: aplicar LoRA para ajustar um modelo no corpus específico e comparar com a pipeline RAG.
-- [ ] Escrever um relatório final em `resumos/semana-05-resumo.md` detalhando a arquitetura usada, ferramentas, resultados e desafios.
-- [ ] Marcar as tarefas como concluídas no checklist semanal.
+## Dia 30 — Projeto RAG robusto
+
+**Entregável**
+- [ ] Notebook `semana05_rag.ipynb`
+- [ ] Pipeline com indexação + retrieval + geração
+- [ ] Resumo em `resumos/semana-05-resumo.md`
+- [ ] Documento com decisões: chunking, embedding, retriever, reranker, avaliação

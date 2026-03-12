@@ -1,118 +1,96 @@
-# Semana 8 — Implantação e Produção de Sistemas de LLM Multiagentes
+# Semana 8 — Produção, segurança, custo e decisão de produto
 
-Na última semana, você aprenderá a levar modelos e sistemas multiagentes para produção com boas práticas de **MLOps/LLMOps**, analisando custos, segurança e critérios de viabilidade de produto. O objetivo é consolidar todo o conhecimento adquirido e construir um pipeline de ponta‑a‑ponta pronto para uso real.
+## Índice
+- [Dia 43 — Serving e arquitetura operacional](#dia-43--serving-e-arquitetura-operacional)
+- [Dia 44 — APIs, empacotamento e deployment](#dia-44--apis-empacotamento-e-deployment)
+- [Dia 45 — Escalabilidade, roteamento e custo](#dia-45--escalabilidade-roteamento-e-custo)
+- [Dia 46 — Guardrails, segurança e governança](#dia-46--guardrails-segurança-e-governança)
+- [Dia 47 — Viabilidade de produto](#dia-47--viabilidade-de-produto)
+- [Dia 48 — Projeto final ponta a ponta](#dia-48--projeto-final-ponta-a-ponta)
 
-## Índice da semana
+## Links externos da semana
+- [Ray Serve LLM](https://docs.ray.io/en/latest/serve/llm)
+- [vLLM Production Stack](https://docs.vllm.ai/en/latest/deployment/integrations/production-stack/)
+- [OpenTelemetry Signals](https://opentelemetry.io/docs/concepts/signals/)
+- [LangSmith docs](https://docs.langchain.com/langsmith)
+- [Data Science for Business — Table of Contents](https://data-science-for-biz.com/contents/)
 
-- [Dia 43 — Fundamentos de MLOps e LLMOps](#dia-43--fundamentos-de-mlops-e-llmops)
-- [Dia 44 — Empacotamento e APIs de LLM](#dia-44--empacotamento-e-apis-de-llm)
-- [Dia 45 — Produção de sistemas multiagentes e custo](#dia-45--produção-de-sistemas-multiagentes-e-custo)
-- [Dia 46 — Segurança, ética e privacidade](#dia-46--segurança-ética-e-privacidade)
-- [Dia 47 — Viabilidade de produtos e tomada de decisão](#dia-47--viabilidade-de-produtos-e-tomada-de-decisão)
-- [Dia 48 — Projeto final: pipeline de produção](#dia-48--projeto-final-pipeline-de-produção)
-
-## Dia 43 — Fundamentos de MLOps e LLMOps
-
-**Referência principal**
-
-* *DS para Negócios*, capítulo 2 – apresenta o ciclo completo de data science até a implantação, enfatizando que o processo termina na **deployment**.
-
-**Referência complementar**
-
-* Artigos da Google Cloud sobre **MLOps** e posts do **Hugging Face** sobre LLMOps.
-
-**Atividades**
-
-- [ ] Estudar a diferença entre **MLOps** e **LLMOps**: MLOps foca em automação, versionamento e monitoramento de modelos, enquanto LLMOps adiciona requisitos de manejo de prompts, bases de conhecimento e observabilidade de LLMs.
-- [ ] Ler um guia sobre pipelines de MLOps (por exemplo, Kubeflow ou MLflow) e entender as etapas: ingestão, treinamento, validação, implantação, monitoramento e atualização.
-- [ ] Mapear como as etapas do processo de data science (business understanding, data understanding, preparation, modeling, evaluation e deployment) se relacionam com práticas de MLOps.
-- [ ] Registrar no resumo quais ferramentas e serviços pretende usar (por exemplo, MLflow para experimentos, FastAPI para APIs, Docker para empacotamento).
-
-## Dia 44 — Empacotamento e APIs de LLM
+## Dia 43 — Serving e arquitetura operacional
 
 **Referência principal**
+- *Building Applications with AI Agents*, design trade-offs / monitoring / protection
+- Ray Serve LLM
+- vLLM production stack
 
-* *Hands‑On LLM* – seções finais que mostram como construir pipelines e interfaces de serviço com LLMs, bem como integrar modelos com APIs e bancos de dados.
-
-**Material on‑line**
-
-* Tutoriais sobre criação de APIs com **FastAPI** ou **Flask** para servir modelos; documentação do **LangChain** para uso em produção.
+**Objetivo**
+Entender serving de verdade.
 
 **Atividades**
+- [ ] Comparar API externa vs serving local
+- [ ] Estudar OpenAI-compatible API, autoscaling e routing
+- [ ] Entender multi-LoRA, cache e throughput
+- [ ] Desenhar arquitetura alvo do seu sistema
 
-- [ ] Escolher uma das pipelines construídas anteriormente (por exemplo, pipeline RAG ou multiagente) e empacotá‑la como um serviço web usando **FastAPI** ou **Flask**. Definir endpoints para receber consultas e retornar respostas.
-- [ ] Criar um arquivo `Dockerfile` para containerizar a aplicação, incluindo dependências e credenciais necessárias (variáveis de ambiente para chaves de API).
-- [ ] Testar a API localmente e, se possível, em um serviço gratuito (como Render ou Hugging Face Spaces). Medir latência e throughput.
-- [ ] Registrar no resumo os passos de implantação e quaisquer problemas encontrados (por exemplo, limitações de memória, configuração de CORS).
-
-## Dia 45 — Produção de sistemas multiagentes e custo
+## Dia 44 — APIs, empacotamento e deployment
 
 **Referência principal**
-
-* *DS para Negócios*, capítulo 7 – discute esperanças e valor esperado como critérios de avaliação e decisão, levando em conta custos e benefícios.
-
-**Referência complementar**
-
-* Guias da Phoenix sobre otimização de custo e distribuição de cargas em pipelines de agentes.
+- *AI Agents in Action*, plataforma e serviços
+- docs da stack escolhida
 
 **Atividades**
+- [ ] Empacotar pipeline com FastAPI ou similar
+- [ ] Criar contrato de entrada/saída
+- [ ] Definir variáveis de ambiente e segredos
+- [ ] Planejar deploy com Docker
 
-- [ ] Avaliar o **custo** de executar o pipeline multiagente: estimar número de chamadas a modelos (tokens gerados), tempo de execução e preço de APIs (por exemplo, OpenAI). Considerar custos de servidores e armazenamento.
-- [ ] Incorporar métricas de custo no seu dashboard de observabilidade: custo por consulta, custo médio por agente, custo mensal estimado.
-- [ ] Usar a estrutura de **valor esperado** para decidir se vale a pena implementar o pipeline: calcular retorno financeiro esperado para cada decisão, considerando economias de tempo, satisfação do usuário e possíveis receitas geradas.
-- [ ] Escrever no resumo uma análise de custo‑benefício: quando utilizar um modelo local (self‑hosted) vs um serviço de API e quando desligar ou reduzir agentes para reduzir gastos.
-
-## Dia 46 — Segurança, ética e privacidade
+## Dia 45 — Escalabilidade, roteamento e custo
 
 **Referência principal**
+- Ray Serve LLM
+- vLLM production stack
+- *Data Science para Negócios*, valor esperado como apoio de decisão
 
-* Artigo da **Snorkel AI** – menciona que a observabilidade deve monitorar a **segurança** das respostas, garantindo que conteúdos indevidos sejam detectados.
-
-**Referência complementar**
-
-* Documentação da OpenAI sobre **content filtering** e **red teaming**.
+**Objetivo**
+Trazer custo para a arquitetura.
 
 **Atividades**
+- [ ] Estimar custo por requisição
+- [ ] Definir fallback de modelo
+- [ ] Definir cache e budget
+- [ ] Comparar caminho barato vs caminho premium
 
-- [ ] Pesquisar diretrizes de segurança e ética para LLMs e agentes, incluindo privacidade de dados, filtragem de conteúdo, mitigação de viés e conformidade com LGPD/GDPR.
-- [ ] Implementar um componente de filtragem ou moderação (por exemplo, Classifier API ou biblioteca open source) em sua API, para bloquear conteúdo inadequado ou informações sensíveis.
-- [ ] Definir políticas de privacidade e coleta de dados para sua aplicação. Anotar como armazenar e anonimizar dados de usuários.
-- [ ] Refletir no resumo sobre implicações éticas de sistemas autônomos e multiagentes, propondo medidas para garantir transparência e responsabilidade.
-
-## Dia 47 — Viabilidade de produtos e tomada de decisão
+## Dia 46 — Guardrails, segurança e governança
 
 **Referência principal**
-
-* *DS para Negócios*, capítulo 7 – descreve o uso de **expected value** e matriz de custos e benefícios para decidir se um modelo deve ser implementado e como investir em melhorias.
-
-**Referência complementar**
-
-* Artigos sobre **product‑market fit** e frameworks de priorização (ICE, RICE, Kano).
+- *Building Applications with AI Agents*, protecting agentic systems
+- suas práticas de observabilidade
 
 **Atividades**
+- [ ] Definir moderação e filtros
+- [ ] Definir política para dados sensíveis
+- [ ] Definir quando entra human-in-the-loop
+- [ ] Criar checklist de segurança do sistema
 
-- [ ] Listar critérios para avaliar a viabilidade de um produto baseado em LLM: custo total de propriedade, valor agregado ao usuário, risco de alucinações, facilidade de manutenção, diferenciação competitiva.
-- [ ] Construir uma matriz com custos (investimento em tempo, infraestrutura, modelo), benefícios (satisfação, receita, economia), riscos e complexidade. Atribuir pontuações e calcular um índice para cada ideia de produto.
-- [ ] Aplicar o framework de valor esperado do *DS para Negócios* para avaliar uma ou duas ideias. Anotar quais suposições você está fazendo (volumes de uso, preços de serviço, conversão em receita).
-- [ ] Registrar no resumo um plano de ação: quais produtos ou features desenvolver primeiro, quais precisam de prova de conceito adicional e quais não valem o investimento.
-
-## Dia 48 — Projeto final: pipeline de produção
+## Dia 47 — Viabilidade de produto
 
 **Referência principal**
+- *Data Science para Negócios*, decisão baseada em valor
+- *Building Applications with AI Agents*, trade-offs e colaboração humano-agente
 
-* Todas as semanas anteriores.
+**Objetivo**
+Julgar se o produto faz sentido.
 
 **Atividades**
+- [ ] Criar matriz custo / benefício / risco
+- [ ] Definir sinais de que multiagente é overengineering
+- [ ] Escrever critérios de go / no-go
+- [ ] Comparar 2 opções de produto ou arquitetura
 
-- [ ] Construir um pipeline de ponta‑a‑ponta integrando o que aprendeu: escolha um problema (ex.: assistente de perguntas frequentes, consultor jurídico, sumarização de documentos) e modele um sistema com vários agentes se necessário.
-- [ ] Implementar:
- 1. **Preparo dos dados e base vetorial** (semana 5).
- 2. **Agentes especializados** que recuperam, analisam e geram respostas (semanas 6 e 7).
- 3. **Observabilidade e métricas** (semana 7).
- 4. **API de serviço e containerização** (dia 44).
- 5. **Painel de custo e valor esperado** (dia 45).
- 6. **Filtro de segurança** (dia 46).
-- [ ] Executar o sistema com um conjunto de casos de teste e coletar métricas de desempenho, custo e satisfação.
-- [ ] Avaliar a viabilidade do produto aplicando a matriz de custo/benefício e valor esperado (dia 47). Decidir se o projeto está pronto para um piloto real ou precisa de ajustes.
-- [ ] Escrever um relatório final em `resumos/semana-08-resumo.md` descrevendo a arquitetura, implementação, métricas, dificuldades e próximos passos.
-- [ ] Marcar as tarefas concluídas na checklist e celebrar o término do Plano 2!
+## Dia 48 — Projeto final ponta a ponta
+
+**Entregável**
+- [ ] Sistema completo com LLM + retrieval + observabilidade + plano de produção
+- [ ] Documento de arquitetura
+- [ ] Documento de viabilidade
+- [ ] Notebook ou demo final
+- [ ] Resumo em `resumos/semana-08-resumo.md`

@@ -1,112 +1,93 @@
-# Semana 2 — Avaliação e Validação de Modelos
+# Semana 2 — Avaliação, validação e seleção de modelos
 
-Nesta semana você se concentra em **avaliar e validar modelos** de machine learning. Aprenderá a reconhecer problemas de sobreajuste, utilizar métricas de desempenho apropriadas, aplicar validação cruzada, ajustar hiperparâmetros e interpretar resultados levando em conta custos e benefícios. O objetivo é preparar uma base sólida para decidir quando um modelo está pronto para produção.
+## Índice
+- [Dia 7 — Overfitting, underfitting e generalização](#dia-7--overfitting-underfitting-e-generalização)
+- [Dia 8 — Métricas de classificação e regressão](#dia-8--métricas-de-classificação-e-regressão)
+- [Dia 9 — Validação cruzada](#dia-9--validação-cruzada)
+- [Dia 10 — Busca de hiperparâmetros](#dia-10--busca-de-hiperparâmetros)
+- [Dia 11 — Custo, benefício e valor esperado](#dia-11--custo-benefício-e-valor-esperado)
+- [Dia 12 — Revisão e projeto comparativo](#dia-12--revisão-e-projeto-comparativo)
 
-## Índice da semana
+## Links externos da semana
+- [Scikit-learn — Model selection and evaluation](https://scikit-learn.org/stable/model_selection.html)
+- [Scikit-learn — Cross-validation](https://scikit-learn.org/stable/modules/cross_validation.html)
+- [Scikit-learn — Hyper-parameter tuning](https://scikit-learn.org/stable/modules/grid_search.html)
+- [Scikit-learn — Classification metrics](https://scikit-learn.org/stable/modules/model_evaluation.html#classification-metrics)
+- [Scikit-learn — ROC metrics](https://scikit-learn.org/stable/modules/model_evaluation.html#roc-metrics)
 
-- [Dia 7 — Generalização, overfitting e underfitting](#dia-7--generalização-overfitting-e-underfitting)
-- [Dia 8 — Métricas de avaliação e matriz de confusão](#dia-8--métricas-de-avaliação-e-matriz-de-confusão)
-- [Dia 9 — Validação cruzada e ajuste de hiperparâmetros](#dia-9--validação-cruzada-e-ajuste-de-hiperparâmetros)
-- [Dia 10 — Métodos de ensemble e curvas ROC](#dia-10--métodos-de-ensemble-e-curvas-roc)
-- [Dia 11 — Seleção de modelos e valor esperado](#dia-11--seleção-de-modelos-e-valor-esperado)
-- [Dia 12 — Projeto: avaliação comparativa](#dia-12--projeto-avaliação-comparativa)
-
-## Dia 7 — Generalização, overfitting e underfitting
+## Dia 7 — Overfitting, underfitting e generalização
 
 **Referência principal**
-
-* *Data Science para Negócios*, capítulo 5 – discute generalização, sobreajuste e controle de complexidade, incluindo técnicas como cross‑validation e regularização.
+- *Data Science para Negócios*, cap. 5
 
 **Referência complementar**
-
-* *Hands‑On Machine Learning*, capítulos sobre regularização e curvas de aprendizado.
-
-**Material on‑line**
-
-* Postagens no blog `mlpills.substack.com` sobre overfitting e underfitting.
+- *Mãos à Obra*, partes de curvas de aprendizado e regularização
 
 **Atividades**
+- [ ] Definir overfitting e underfitting com exemplos
+- [ ] Gerar curva de aprendizado
+- [ ] Comparar erro de treino vs validação
+- [ ] Escrever um parágrafo sobre viés vs variância
 
-- [ ] Ler o capítulo 5 de *DS para Negócios* para entender a importância de generalização e as causas do overfitting e underfitting.
-- [ ] Plotar curvas de aprendizado (score vs tamanho do conjunto de treinamento) para o modelo desenvolvido na semana 1. Usar Scikit‑Learn (`learning_curve`) para visualizar se há overfitting.
-- [ ] Experimentar reduzir a complexidade do modelo (por exemplo, limitando a profundidade da árvore ou aplicando regularização L2) e observar o impacto.
-- [ ] Anotar conclusões sobre trade‑off viés‑variância em seu resumo semanal.
-
-## Dia 8 — Métricas de avaliação e matriz de confusão
+## Dia 8 — Métricas de classificação e regressão
 
 **Referência principal**
-
-* *DS para Negócios*, capítulo 7 – apresenta diversas métricas de avaliação, explica problemas de acurácia em classes desbalanceadas, a importância da matriz de confusão, custos e benefícios e o conceito de valor esperado na avaliação de modelos.
+- *Data Science para Negócios*, cap. 7
 
 **Referência complementar**
-
-* Artigos da documentação do Scikit‑Learn sobre `accuracy_score`, `precision`, `recall`, `f1_score` e `confusion_matrix`.
+- docs do Scikit-learn
 
 **Atividades**
+- [ ] Calcular accuracy, precision, recall, F1 e ROC-AUC
+- [ ] Calcular RMSE e MAE em regressão
+- [ ] Explicar quando acurácia engana
+- [ ] Interpretar uma matriz de confusão
 
-- [ ] Revisar os tipos de erros (falso positivo, falso negativo) e construir uma matriz de confusão para o classificador criado na semana 1, utilizando `confusion_matrix`.
-- [ ] Calcular e comparar diferentes métricas: acurácia, precisão, recall, F1 e **AUC** (quando aplicável). Entender em quais cenários cada métrica é mais indicada.
-- [ ] Criar um relatório em formato de tabela ou gráfico comparando as métricas e interpretar quais trade‑offs estão envolvidos.
-
-## Dia 9 — Validação cruzada e ajuste de hiperparâmetros
+## Dia 9 — Validação cruzada
 
 **Referência principal**
-
-* *DS para Negócios*, capítulo 5 – descreve métodos de validação cruzada e sua relação com overfitting.
+- *Data Science para Negócios*, cap. 5
 
 **Referência complementar**
-
-* *Hands‑On Machine Learning*, seções sobre `GridSearchCV` e `RandomizedSearchCV`.
+- *Mãos à Obra*, validação cruzada
 
 **Atividades**
+- [ ] Rodar k-fold cross-validation
+- [ ] Comparar split único vs CV
+- [ ] Salvar distribuição de scores
+- [ ] Escrever por que CV é importante
 
-- [ ] Implementar validação cruzada **k‑fold** (usando `cross_val_score`) para o modelo usado anteriormente e registrar a média e o desvio padrão das métricas.
-- [ ] Utilizar `GridSearchCV` ou `RandomizedSearchCV` para ajustar hiperparâmetros do modelo (por exemplo, profundidade da árvore, número de estimadores em uma Random Forest).
-- [ ] Avaliar o melhor conjunto de hiperparâmetros com base na métrica escolhida (ex.: F1 ou AUC).
-- [ ] Documentar o processo e resultados em seu notebook.
-
-## Dia 10 — Métodos de ensemble e curvas ROC
+## Dia 10 — Busca de hiperparâmetros
 
 **Referência principal**
-
-* *Hands‑On Machine Learning*, capítulo sobre **Random Forest** e **Boosting**, que mostram como combinar modelos para reduzir variância e melhorar performance.
+- *Mãos à Obra*, tuning de hiperparâmetros
 
 **Referência complementar**
-
-* *DS para Negócios*, capítulo 8 – apresenta visualizações de desempenho, como curvas ROC, área sob a curva (AUC) e curvas de lift.
+- docs `GridSearchCV` e `RandomizedSearchCV`
 
 **Atividades**
+- [ ] Rodar `GridSearchCV`
+- [ ] Rodar `RandomizedSearchCV`
+- [ ] Comparar custo e benefício
+- [ ] Registrar melhor configuração encontrada
 
-- [ ] Treinar um modelo de ensemble (por exemplo, **Random Forest** ou **Gradient Boosting**) no dataset utilizado. Comparar seu desempenho com o modelo simples das semanas anteriores.
-- [ ] Plotar a curva ROC e calcular a AUC usando `roc_curve` e `auc` do Scikit‑Learn. Interpretar o trade‑off entre sensibilidade e especificidade.
-- [ ] Explorar outro método de ensemble (Bagging ou Voting Classifier) e discutir diferenças em relação ao Random Forest.
-
-## Dia 11 — Seleção de modelos e valor esperado
+## Dia 11 — Custo, benefício e valor esperado
 
 **Referência principal**
+- *Data Science para Negócios*, cap. 7
 
-* *DS para Negócios*, capítulo 7 – discute como usar **valor esperado** para avaliar modelos, levando em consideração custos e benefícios e comparando contra baselines.
-
-**Referência complementar**
-
-* Artigo ou vídeo sobre métricas de custo (cost sensitive learning) e balanceamento de classes.
+**Objetivo**
+Sair da métrica pura e entrar em decisão.
 
 **Atividades**
+- [ ] Criar um cenário com custo de falso positivo e falso negativo
+- [ ] Calcular valor esperado simples
+- [ ] Escolher modelo com base em custo e não só em métrica
+- [ ] Escrever a decisão final
 
-- [ ] Definir um cenário fictício (por exemplo, detecção de fraude com custos diferentes para falsos positivos e falsos negativos). Estabelecer um valor monetário para cada tipo de erro.
-- [ ] Calcular o **valor esperado** ou lucro esperado para cada modelo treinado (árvore, Random Forest etc.), conforme a matriz de confusão e os custos/benefícios estabelecidos.
-- [ ] Selecionar o modelo com maior valor esperado e justificar a escolha, mesmo que sua acurácia não seja a mais alta.
-- [ ] Documentar no resumo semanal um comparativo entre as métricas tradicionais e a métrica de valor esperado.
+## Dia 12 — Revisão e projeto comparativo
 
-## Dia 12 — Projeto: avaliação comparativa
-
-**Referência principal**
-
-* Todos os materiais estudados ao longo da semana.
-
-**Atividades**
-
-- [ ] Escolher um novo conjunto de dados (por exemplo, `wine quality` ou um dataset de classificação binária do Kaggle). Repetir todas as etapas: pré‑processamento, divisão, treinamento de pelo menos três modelos (árvore, logística, Random Forest, SVM etc.), validação cruzada e ajuste de hiperparâmetros.
-- [ ] Comparar os modelos com base em várias métricas (acurácia, F1, AUC, valor esperado) e decidir qual modelo seria implantado em produção e por quê.
-- [ ] Registrar as decisões e aprendizados em um relatório em `resumos/semana-02-resumo.md`.
-- [ ] Marcar as tarefas concluídas na checklist semanal.
+**Entregável**
+- [ ] Comparar ao menos 3 modelos
+- [ ] Criar notebook `semana02_avaliacao.ipynb`
+- [ ] Resumo em `resumos/semana-02-resumo.md`
